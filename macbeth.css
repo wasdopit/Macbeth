@@ -20,6 +20,7 @@ mark::after {
   width: max-content;     /* allows it to expand to fit words */
   white-space: normal;    /* allows wrapping */
   word-wrap: break-word;  /* break very long words if needed */
+  overflow-wrap: anywhere;
   z-index: 10;
 }
 
