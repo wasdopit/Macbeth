@@ -1,7 +1,7 @@
 mark {
   background: lightblue;
   cursor: pointer;
-  position: relative; /* now the popup is positioned relative to this mark */
+  position: relative; /* popup positioned relative to mark */
 }
 
 mark::after {
@@ -9,26 +9,34 @@ mark::after {
   display: none;
   position: absolute;
   top: 50%;
-  left: 103%;
+  left: 105%;                 /* default: to the right of mark */
   transform: translateY(-50%);
   background: #fff9c0;
   border: 1px solid black;
   padding: 6px;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  max-width: 350px;      /* controls max width */
-  width: max-content;     /* allows it to expand to fit words */
-  white-space: normal;    /* allows wrapping */
-  word-wrap: break-word;  /* break very long words if needed */
-  overflow-wrap: anywhere;
+  max-width: 90vw;            /* limit tooltip width to viewport */
+  width: 10vw;                /* allow natural width */
+  white-space: normal;        /* allows wrapping */
   z-index: 10;
+  box-sizing: border-box;     /* include padding in width */
 }
 
 mark.active::after {
   display: block;
 }
 
+/* Mobile adjustment: flip to left if needed */
+@media (max-width: 600px) {
+  mark::after {
+    left: auto;
+    right: 0;                 /* stay inside screen */
+    max-width: 90vw;          /* wrap nicely on mobile */
+    width: auto;
+  }
+}
+
 body {
     text-align: center
-
 }
