@@ -4,7 +4,7 @@ body {
 
 .content {
     display: inline-block;  /* keeps all content centered */
-    text-align: left;       /* preserves preformatted text alignment */
+    text-align: center;       /* preserves preformatted text alignment */
     max-width: 95vw;        /* prevent overflow on mobile */
 }
 
@@ -28,7 +28,6 @@ mark::after {
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   max-width: none;          /* don't force wrapping */
   white-space: nowrap;      /* keep it sideways */
-  word-wrap: break-word;
   z-index: 10;
 }
 
@@ -45,4 +44,3 @@ mark.active::after {
     white-space: nowrap;    /* keep it sideways */
   }
 }
-
