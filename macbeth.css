@@ -1,17 +1,7 @@
-body {
-    text-align: center;
-}
-
-.content {
-    display: inline-block;  /* keeps all content centered */
-    text-align: center;       /* preserves preformatted text alignment */
-    max-width: 95vw;        /* prevent overflow on mobile */
-}
-
 mark {
   background: lightblue;
   cursor: pointer;
-  position: relative; /* popup positioned relative to mark */
+  position: relative; /* now the popup is positioned relative to this mark */
 }
 
 mark::after {
@@ -19,15 +9,17 @@ mark::after {
   display: none;
   position: absolute;
   top: 50%;
-  left: 105%;               /* default: to the right */
+  left: 103%;
   transform: translateY(-50%);
   background: #fff9c0;
   border: 1px solid black;
   padding: 6px;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  max-width: none;          /* don't force wrapping */
-  white-space: nowrap;      /* keep it sideways */
+  max-width: 350px;      /* controls max width */
+  width: max-content;     /* allows it to expand to fit words */
+  white-space: normal;    /* allows wrapping */
+  word-wrap: break-word;  /* break very long words if needed */
   z-index: 10;
 }
 
@@ -35,12 +27,6 @@ mark.active::after {
   display: block;
 }
 
-/* Mobile adjustment: flip to the left if needed */
-@media (max-width: 600px) {
-  mark::after {
-    left: auto;
-    right: 105%;            /* stay sideways, just flip side */
-    transform: translateY(-50%);
-    white-space: nowrap;    /* keep it sideways */
-  }
+body {
+    text-align: center
 }
