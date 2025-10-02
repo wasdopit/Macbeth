@@ -22,7 +22,7 @@ mark::after {
   word-wrap: break-word;  /* break very long words if needed */
   overflow-wrap: anywhere;
   z-index: 10;
-  font-size: 18px;
+  font-size: 1.1vw;
 }
 
 mark.active::after {
@@ -31,8 +31,5 @@ mark.active::after {
 
 body {
     text-align: center;
-    font-size: 18px;
+    font-size: 1.1vw;
 }
-
-
-
